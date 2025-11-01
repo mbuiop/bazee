@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>بازی سه‌بعدی Bazee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+    }
+    canvas {
+      width: 100vw;
+      height: 100vh;
+      touch-action: none;
+      display: block;
+    }
+    #loadingText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      color: white;
+      text-shadow: 0 0 10px #00b3ff;
+    }
+  </style>
+</head>
+<body>
+  <div id="loadingText">در حال بارگذاری بازی...</div>
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- 🔹 کتابخانه‌ها (از پوشه libs) -->
+  <script src="babylon.js"></script>
+  <script src="babylon.gui.js"></script>
+  <script src="babylonjs.materials.min.js"></script>
+  <script src="cannon.js"></script>
+
+  <!-- 🔹 کدهای بازی -->
+  <script src="js/camera.js"></script>
+  <script src="js/enemies.js"></script>
+  <script src="js/environment.js"></script>
+  <script src="js/train3d.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const canvas = document.getElementById("gameCanvas");
+      const loading = document.getElementById("loadingText");
+
+      try {
+        if (!BABYLON || !BABYLON.Engine) {
+          loading.innerText = "❌ خطا در لود Babylon.js";
+          return;
+        }
+
+        // ساخت موتور
+        const engine = new BABYLON.Engine(canvas, true);
+        loading.innerText = "در حال شروع بازی...";
+
+        // فرض می‌کنیم در main.js تابع startGame تعریف شده
+        if (typeof startGame === "function") {
+          startGame(engine, canvas);
+          loading.style.display = "none";
+        } else {
+          loading.innerText = "⚠️ تابع startGame در main.js پیدا نشد!";
+        }
+
+        // حلقه رندر
+        engine.runRenderLoop(() => {
+          if (window.scene) {
+            window.scene.render();
+          }
+        });
+
+        window.addEventListener("resize", () => engine.resize());
+      } catch (err) {
+        loading.innerText = "⚠️ خطا در اجرای بازی:\n" + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
