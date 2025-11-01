@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    overflow: hidden;
+    background: #000;
+    color: white;
+    height: 100vh;
+}
+
+#gameContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#threejsContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* رابط کاربری */
+#ui {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+#scorePanel {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #4caf50;
+    font-weight: bold;
+}
+
+#healthBar {
+    width: 200px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#healthFill {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #4caf50, #8bc34a);
+    transition: width 0.3s;
+    border-radius: 6px;
+}
+
+#speedIndicator {
+    font-size: 14px;
+    color: #bbdefb;
+    margin-bottom: 15px;
+}
+
+#controlsInfo {
+    font-size: 12px;
+    color: #e3f2fd;
+    opacity: 0.8;
+}
+
+/* منوها */
+#startMenu, #gameOverMenu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 200;
+    backdrop-filter: blur(15px);
+    border: 2px solid #4caf50;
+    min-width: 500px;
+}
+
+#startMenu h1, #gameOverMenu h1 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #4caf50, #2196f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#startMenu p, #gameOverMenu p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: #e3f2fd;
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.feature-list div {
+    background: rgba(76, 175, 80, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+button {
+    background: linear-gradient(45deg, #4caf50, #2196f3);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 1.2em;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4);
+    background: linear-gradient(45deg, #66bb6a, #42a5f5);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* افکت سینمایی */
+#cinematicBars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 150;
+}
+
+.bar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    background: #000;
+}
+
+.bar.top {
+    top: 0;
+}
+
+.bar.bottom {
+    bottom: 0;
+}
+
+/* کنترل‌های موبایل */
+#mobileControls {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 100;
+}
+
+.control-btn {
+    width: 70px;
+    height: 70px;
+    background: rgba(76, 175, 80, 0.3);
+    border: 2px solid #4caf50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    #mobileControls {
+        display: flex;
+    }
+    
+    #controlsInfo {
+        display: none;
+    }
+  }
