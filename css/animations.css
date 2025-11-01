@@ -1,0 +1,343 @@
+/* انیمیشن‌های پیشرفته سه‌بعدی */
+
+/* انیمیشن حرکت قطار */
+@keyframes trainMovement {
+    0% {
+        transform: translateX(-100%) rotateY(0deg);
+    }
+    25% {
+        transform: translateX(-50%) rotateY(5deg);
+    }
+    50% {
+        transform: translateX(0%) rotateY(0deg);
+    }
+    75% {
+        transform: translateX(50%) rotateY(-5deg);
+    }
+    100% {
+        transform: translateX(100%) rotateY(0deg);
+    }
+}
+
+/* انیمیشن دوربین پهپاد */
+@keyframes droneCamera {
+    0% {
+        transform: translate3d(0, 10px, 50px) rotateX(-10deg);
+    }
+    25% {
+        transform: translate3d(20px, 5px, 45px) rotateX(-5deg) rotateY(5deg);
+    }
+    50% {
+        transform: translate3d(0, 15px, 55px) rotateX(-15deg);
+    }
+    75% {
+        transform: translate3d(-20px, 8px, 48px) rotateX(-8deg) rotateY(-5deg);
+    }
+    100% {
+        transform: translate3d(0, 10px, 50px) rotateX(-10deg);
+    }
+}
+
+/* انیمیشن محیط شهری */
+@keyframes cityLights {
+    0% {
+        background-position: 0 0;
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        filter: hue-rotate(180deg);
+    }
+    100% {
+        background-position: 1000px 0;
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* انیمیشن تیربار */
+@keyframes machineGunFire {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* انیمیشن دشمنان */
+@keyframes enemySpawn {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes enemyDeath {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) rotate(180deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* انیمیشن محیط بیابان */
+@keyframes desertWind {
+    0% {
+        background-position: 0 0;
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.3);
+    }
+    100% {
+        background-position: 500px 0;
+        filter: brightness(1);
+    }
+}
+
+/* انیمیشن محیط دریایی */
+@keyframes oceanWaves {
+    0% {
+        background-position: 0 0;
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        background-position: 200px 0;
+        transform: translateY(0px);
+    }
+}
+
+/* انیمیشن ریل */
+@keyframes railMovement {
+    0% {
+        transform: translateZ(0) rotateX(0deg);
+    }
+    25% {
+        transform: translateZ(5px) rotateX(2deg);
+    }
+    50% {
+        transform: translateZ(0) rotateX(0deg);
+    }
+    75% {
+        transform: translateZ(-5px) rotateX(-2deg);
+    }
+    100% {
+        transform: translateZ(0) rotateX(0deg);
+    }
+}
+
+/* انیمیشن‌های سه‌بعدی پیشرفته */
+.parallax {
+    transform-style: preserve-3d;
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.layer-1 { transform: translateZ(-500px) scale(2); }
+.layer-2 { transform: translateZ(-300px) scale(1.6); }
+.layer-3 { transform: translateZ(-200px) scale(1.4); }
+.layer-4 { transform: translateZ(-100px) scale(1.2); }
+.layer-5 { transform: translateZ(0px) scale(1); }
+
+/* انیمیشن حرکت سه‌بعدی */
+@keyframes threeDMove {
+    0% {
+        transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+        transform: translate3d(50px, 20px, 100px) rotateX(10deg) rotateY(5deg);
+    }
+    50% {
+        transform: translate3d(0, 40px, 200px) rotateX(0deg) rotateY(10deg);
+    }
+    75% {
+        transform: translate3d(-50px, 20px, 100px) rotateX(-10deg) rotateY(5deg);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+    }
+}
+
+/* افکت‌های سینمایی */
+.cinematic-bars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 150;
+}
+
+.cinematic-bars::before,
+.cinematic-bars::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    background: #000;
+    transition: height 0.5s ease;
+}
+
+.cinematic-bars::before {
+    top: 0;
+}
+
+.cinematic-bars::after {
+    bottom: 0;
+}
+
+.cinematic-bars.active::before,
+.cinematic-bars.active::after {
+    height: 25%;
+}
+
+/* انیمیشن فوکوس دوربین */
+@keyframes cameraFocus {
+    0% {
+        filter: blur(0px) contrast(1);
+    }
+    50% {
+        filter: blur(2px) contrast(1.2);
+    }
+    100% {
+        filter: blur(0px) contrast(1);
+    }
+}
+
+/* انیمیشن لرزش */
+@keyframes screenShake {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translate3d(-10px, 0, 0);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+/* انیمیشن حرکت آهسته */
+.slow-motion {
+    animation-duration: 3s !important;
+    animation-timing-function: linear !important;
+}
+
+/* انیمیشن‌های پخش ویدیویی */
+@keyframes filmGrain {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.film-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" opacity="0.05"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" stitchTiles="stitch"/></filter><rect width="400" height="400" filter="url(%23noise)"/></svg>');
+    animation: filmGrain 1s steps(10) infinite;
+    pointer-events: none;
+    z-index: 200;
+}
+
+/* انیمیشن‌های رنگ سینمایی */
+.cinematic-color {
+    filter: contrast(1.1) saturate(1.3) brightness(0.9) hue-rotate(-5deg);
+}
+
+/* انیمیشن انتقال صحنه */
+@keyframes sceneTransition {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ریسپانسیو انیمیشن‌ها */
+@media (max-width: 768px) {
+    @keyframes trainMovement {
+        0% {
+            transform: translateX(-50%) rotateY(0deg);
+        }
+        100% {
+            transform: translateX(50%) rotateY(0deg);
+        }
+    }
+    
+    .cinematic-bars::before,
+    .cinematic-bars::after {
+        height: 10%;
+    }
+    
+    .cinematic-bars.active::before,
+    .cinematic-bars.active::after {
+        height: 20%;
+    }
+}
+
+/* انیمیشن‌های عملکرد بالا با transform3d */
+.performance-optimized {
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* انیمیشن فیزیک پیشرفته */
+@keyframes physicsFall {
+    0% {
+        transform: translate3d(0, -100px, 0) rotateX(0deg);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+        transform: translate3d(0, 0, 0) rotateX(180deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+        transform: translate3d(0, 50px, 0) rotateX(360deg);
+    }
+}
