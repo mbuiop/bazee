@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قطار تیربار سه بعدی - حرکت سینمایی</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="gameContainer">
+        <div id="threejsContainer"></div>
+        
+        <!-- رابط کاربری -->
+        <div id="ui">
+            <div id="scorePanel">
+                <span>امتیاز: </span>
+                <span id="score">0</span>
+            </div>
+            <div id="healthBar">
+                <div id="healthFill"></div>
+            </div>
+            <div id="speedIndicator">
+                سرعت: <span id="speedValue">0</span> km/h
+            </div>
+            <div id="controlsInfo">
+                <p>🎮 حرکت: W, S, A, D | شلیک: Space</p>
+            </div>
+        </div>
+        
+        <!-- منوی شروع -->
+        <div id="startMenu">
+            <h1>🚂 قطار تیربار سه بعدی 🪂</h1>
+            <p>حرکت سینمایی به جلو - گرافیک حرفه‌ای</p>
+            <div class="feature-list">
+                <div>🎯 حرکت سه بعدی قطار</div>
+                <div>🎯 شلیک تیر سبز رنگ</div>
+                <div>🎯 چتربازهای متحرک</div>
+                <div>🎯 دوربین سینمایی</div>
+            </div>
+            <button id="startButton">شروع مأموریت</button>
+        </div>
+        
+        <!-- منوی پایان -->
+        <div id="gameOverMenu" class="hidden">
+            <h1>مأموریت پایان یافت!</h1>
+            <p>امتیاز نهایی: <span id="finalScore">0</span></p>
+            <button id="restartButton">شروع مجدد</button>
+        </div>
+    </div>
+
+    <!-- فایل‌های جاوااسکریپت -->
+    <script src="js/game.js"></script>
+</body>
+</html>
